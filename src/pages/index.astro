@@ -3,6 +3,22 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+const fetchCourseProgress = async () => {
+  try {
+    const response = await fetch('/api/course-progress');
+    if (!response.ok) {
+      throw new Error('Failed to fetch course progress.');
+    }
+    const data = await response.json();
+    const progressElement = document.getElementById('courseProgress');
+    progressElement.textContent = `Course Progress: ${data.completed}%`;
+  } catch (error) {
+    console.error('Error fetching course progress:', error);
+  }
+};
+
+fetchCourseProgress();
 ---
 
 <!doctype html>
@@ -14,19 +30,19 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
         <a class=skip_lnk href="#main">Skip to content</a>
 		<Header />
 		<main id="main">
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
+			<h1>🤔 What's Shara up to?</h1>
+			<h2>Code</h2>
+            <div class="code-stats">
+            <div>
+                <figure><embed src="https://wakatime.com/share/@Sharuto/63ed65e4-7cee-48bd-847e-7b832ba5f8d4.svg"></embed></figure>
+        </div>
+        <div>
+            <figure><embed src="https://wakatime.com/share/@Sharuto/eb9330fa-96a5-4dfd-8972-3af4af3826d2.svg"></embed></figure>
+        </div>
+			<h2>
+                Mindful Minutes
+            </h2>
+            <p>Here are a few ideas on how to get started with the template:</p>
 			<ul>
 				<li>Edit this page in <code>src/pages/index.astro</code></li>
 				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
@@ -70,5 +86,15 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
   .skip_lnk {
     display: none;
   }
+}
+
+div {
+    margin: 45px 0;
+}
+
+.code-table-stats {
+    display: flex;
+    max-width: 1200px;
+    flex-direction: row;
 }
 </style>

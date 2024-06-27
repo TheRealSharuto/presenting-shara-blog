@@ -40,11 +40,11 @@ body {
 	margin: 0;
 	padding: 0;
 	text-align: left;
-	background-color: var(--primary-color);
+	background-color: var(--warm-green);
 	background-size: 100% 600px;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
-	color: rgb(var(--gray-dark));
+	color: var(--primary-color);
 	font-size: 20px;
 	line-height: 1.7;
 }
@@ -67,7 +67,7 @@ h4,
 h5,
 h6 {
 	margin: 0 0 0.5rem 0;
-	color: rgb(var(--black));
+	color: var(--off-white);
 	line-height: 1.2;
 }
 h1 {
@@ -90,13 +90,14 @@ b {
 	font-weight: 700;
 }
 a {
-	color: var(--accent);
+	color: var(--primary-color);
 }
 a:hover {
 	color: var(--accent);
 }
 p {
 	margin-bottom: 1em;
+    color: var(--off-white);
 }
 .prose p {
 	margin-bottom: 2em;
